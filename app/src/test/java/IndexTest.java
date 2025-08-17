@@ -39,13 +39,9 @@ public class IndexTest {
 
     @Test
     void textPresentInIndexPage() {
-        final URL indexUrl = getClass().getClassLoader().getResource("index.html");
-        if (indexUrl == null) {
-            String projectRoot = System.getProperty("user.dir");
-            driver.get("file:///" + projectRoot + "/app/src/main/resources/index.html");
-        } else {
-            driver.get(indexUrl.toString());
-        }
+        String projectRoot = System.getProperty("user.dir");
+        String filePath = projectRoot + "/app/src/main/resources/index.html";
+        driver.get("file://" + filePath);
         
         final String pageSource = driver.getPageSource();
         assertTrue(pageSource.contains("It works!"), "Expected text 'It works!' not found on the page");
