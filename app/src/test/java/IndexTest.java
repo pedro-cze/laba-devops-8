@@ -40,7 +40,7 @@ public class IndexTest {
     @Test
     void textPresentInIndexPage() {
         String projectRoot = System.getProperty("user.dir");
-        String filePath = projectRoot + "/app/src/main/resources/index.html";
+        String filePath = projectRoot + "/src/main/resources/index.html";
         driver.get("file://" + filePath);
         
         final String pageSource = driver.getPageSource();
